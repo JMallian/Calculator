@@ -1,0 +1,27 @@
+.container {
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	font-size: 200%;
+}
+
+#zero {
+	grid-column: span 2;
+}
+
+#equal {
+	grid-row: span 2;
+}
+
+.button, .item {
+	background-color: gray;
+}
+
+ #display {
+	grid-column: span 4;
+	background-color: gray;
+}
+
