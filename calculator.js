@@ -11,6 +11,38 @@ function init() {
 	for(var i = 0; i < operators.length; i++) {
 		operators[i].onclick = handleClickForOperators;
 	}
+
+	var allClear = document.getElementById("AC");
+	allClear.onclick = handleClickForAllClear;
+
+	var clearEntry = document.getElementById("CE");
+	clearEntry.onclick = handleClickForClearEntry;
+
+	var decimal = document.getElementById("decimal");
+	decimal.onclick = handleClickForDecimal;
+
+	var equal = document.getElementById("equal");
+	equal.onclick = handleClickForEqual;
+}
+
+function handleClickForEqual() {
+	var testDisplay = document.getElementById("test");
+	testDisplay.innerHTML = "=";
+}
+
+function handleClickForDecimal() {
+	var testDisplay = document.getElementById("test");
+	testDisplay.innerHTML = ".";
+}
+
+function handleClickForClearEntry() {
+	var testDisplay = document.getElementById("test");
+	testDisplay.innerHTML = "clear entry";
+}
+
+function handleClickForAllClear() {
+	var testDisplay = document.getElementById("test");
+	testDisplay.innerHTML = "all clear";
 }
 
 function handleClickForNumbers(e) {
