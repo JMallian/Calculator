@@ -1,5 +1,7 @@
 window.onload = init;
 var calculations = [];
+var number = "";
+var operator = "";
 
 function init() {
 	var numbers = document.getElementsByClassName("num");
@@ -27,7 +29,21 @@ function init() {
 
 function handleClickForEqual() {
 	var testDisplay = document.getElementById("test");
-	testDisplay.innerHTML = "=";
+	calculations.push(number); //push the second number into array
+	var calculation;
+	if(calculations[1] == "+") {
+		calculation = parseInt(calculations[0]) + parseInt(calculations[2]);
+	}else if(calculations[1] == "-") {
+		calculation = parseInt(calculations[0]) - parseInt(calculations[2]);
+	}else if(calculations[1] == "*") {
+		calculation = parseInt(calculations[0]) * parseInt(calculations[2]);
+	}else if(calculations[1] == "/") { // it's division
+		calculation = parseInt(calculations[0]) / parseInt(calculations[2]);
+	}else{
+		calculation = "error";
+	}
+	testDisplay.innerHTML = calculation;
+
 }
 
 function handleClickForDecimal() {
@@ -47,19 +63,23 @@ function handleClickForAllClear() {
 
 function handleClickForNumbers(e) {
 	var clickedButton = e.target;
+	number = number + clickedButton.innerHTML;
+
 	var display = document.getElementById("display");
-	display.innerHTML = clickedButton.innerHTML;
-	calculations.push(clickedButton.innerHTML);
+	//display.innerHTML = clickedButton.innerHTML;
+	//calculations.push(clickedButton.innerHTML);
 
 	var testDisplay = document.getElementById("test");
-	testDisplay.innerHTML = calculations;
+	testDisplay.innerHTML = number;
 }
 
 function handleClickForOperators(e) {
 	var clickedButton = e.target;
 	var display = document.getElementById("display");
 	display.innerHTML = clickedButton.innerHTML;
-	calculations.push(clickedButton.innerHTML);
+	calculations.push(number); //push the number into the array
+	number = ""; //clear the number
+	calculations.push(clickedButton.innerHTML); //push the operator into the array
 
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = calculations;
