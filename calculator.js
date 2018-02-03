@@ -55,14 +55,20 @@ function handleClickForDecimal() {
 	testDisplay.innerHTML = ".";
 }
 
-function handleClickForClearEntry() {
+function handleClickForClearEntry() { //presumably this is used when the user enters a wrong digit
+	//so it should clear number
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = "clear entry";
+	display("0");
+	number = "";
 }
 
 function handleClickForAllClear() {
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = "all clear";
+	display("0"); //display nothing
+	number = ""; //reset number
+	calculations = []; //create a new empty array
 }
 
 function handleClickForNumbers(e) { //operands 
