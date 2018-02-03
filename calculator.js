@@ -45,6 +45,9 @@ function handleClickForEqual() {
 	testDisplay.innerHTML = calculation;
 	display(calculation);
 
+	//clear the array
+	calculations = [];
+	number = calculation;
 }
 
 function handleClickForDecimal() {
@@ -62,15 +65,10 @@ function handleClickForAllClear() {
 	testDisplay.innerHTML = "all clear";
 }
 
-function handleClickForNumbers(e) {
+function handleClickForNumbers(e) { //operands 
 	var clickedButton = e.target;
 	number = number + clickedButton.innerHTML;
 	display(number);
-
-	//var display = document.getElementById("display");
-	//display.innerHTML = clickedButton.innerHTML;
-	//calculations.push(clickedButton.innerHTML);
-
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = number;
 }
