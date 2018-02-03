@@ -25,6 +25,7 @@ function init() {
 
 	var equal = document.getElementById("equal");
 	equal.onclick = handleClickForEqual;
+
 }
 
 function handleClickForEqual() {
@@ -32,17 +33,17 @@ function handleClickForEqual() {
 	calculations.push(number); //push the second number into array
 	var calculation;
 	if(calculations[1] == "+") {
-		calculation = parseInt(calculations[0]) + parseInt(calculations[2]);
+		calculation = parseFloat(calculations[0]) + parseFloat(calculations[2]);
 	}else if(calculations[1] == "-") {
-		calculation = parseInt(calculations[0]) - parseInt(calculations[2]);
+		calculation = parseFloat(calculations[0]) - parseFloat(calculations[2]);
 	}else if(calculations[1] == "*") {
-		calculation = parseInt(calculations[0]) * parseInt(calculations[2]);
+		calculation = parseFloat(calculations[0]) * parseFloat(calculations[2]);
 	}else if(calculations[1] == "/") { // it's division
-		calculation = parseInt(calculations[0]) / parseInt(calculations[2]);
+		calculation = parseFloat(calculations[0]) / parseFloat(calculations[2]);
 	}else{
 		calculation = "error";
 	}
-	testDisplay.innerHTML = calculation;
+	testDisplay.innerHTML = typeof calculation;
 	display(calculation);
 
 	//clear the array
@@ -53,6 +54,8 @@ function handleClickForEqual() {
 function handleClickForDecimal() {
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = ".";
+	number = number + ".";
+	display(number);
 }
 
 function handleClickForClearEntry() { //presumably this is used when the user enters a wrong digit
