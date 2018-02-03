@@ -43,6 +43,7 @@ function handleClickForEqual() {
 		calculation = "error";
 	}
 	testDisplay.innerHTML = calculation;
+	display(calculation);
 
 }
 
@@ -64,8 +65,9 @@ function handleClickForAllClear() {
 function handleClickForNumbers(e) {
 	var clickedButton = e.target;
 	number = number + clickedButton.innerHTML;
+	display(number);
 
-	var display = document.getElementById("display");
+	//var display = document.getElementById("display");
 	//display.innerHTML = clickedButton.innerHTML;
 	//calculations.push(clickedButton.innerHTML);
 
@@ -75,12 +77,16 @@ function handleClickForNumbers(e) {
 
 function handleClickForOperators(e) {
 	var clickedButton = e.target;
-	var display = document.getElementById("display");
-	display.innerHTML = clickedButton.innerHTML;
+	display(clickedButton.innerHTML);
 	calculations.push(number); //push the number into the array
 	number = ""; //clear the number
 	calculations.push(clickedButton.innerHTML); //push the operator into the array
 
 	var testDisplay = document.getElementById("test");
 	testDisplay.innerHTML = calculations;
+}
+
+function display(display) {
+	var displayElement = document.getElementById("display");
+	displayElement.innerHTML = display;
 }
